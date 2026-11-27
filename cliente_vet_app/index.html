@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Veterinaria Huellas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <img src="img/logo-huellas.jpg" alt="Logo Huellas" class="logo" onerror="this.src='https://via.placeholder.com/45?text=🐾'">
+      <span>Clínica Veterinaria <strong>Huellas</strong></span>
+    </div>
+    <nav class="nav-links">
+      <button class="btn-filtro active" data-filtro="todos">Sala de Espera</button>
+      <button class="btn-filtro" data-filtro="por_atender">Por Atender</button>
+      <button class="btn-filtro" data-filtro="atendidos">Atendidos</button>
+      <button id="btn-abrir-form" class="btn-primario">+ Nueva Consulta</button>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+    <section id="seccion-formulario" class="oculto">
+      <h2>Registrar Nueva Consulta</h2>
+      <form id="form-mascota">
+        <div class="campo">
+          <label for="nombre-mascota">Nombre de la Mascota:</label>
+          <input type="text" id="nombre-mascota" required minlength="2" disabled>
+        </div>
+        <div class="campo">
+          <label for="especie">Especie:</label>
+          <select id="especie" required disabled>
+            <option value="">Seleccione...</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Ave">Ave</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="motivo-consulta">Motivo de Consulta:</label>
+          <input type="text" id="motivo-consulta" required minlength="4" disabled>
+        </div>
+        <div class="campo">
+          <label for="imagen-url">Ruta o URL de la Imagen:</label>
+          <input type="text" id="imagen-url" placeholder="img/max.jpg" required disabled>
+        </div>
+        <div class="campo-check">
+          <input type="checkbox" id="atendido" disabled>
+          <label for="atendido">¿Ya fue atendido?</label>
+        </div>
+        <div class="acciones-form">
+          <button type="submit" class="btn-guardar" disabled>Guardar Paciente</button>
+          <button type="button" id="btn-cancelar" class="btn-secundario" disabled>Cancelar / Volver al Catálogo</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="seccion-catalogo">
+      <h1 id="titulo-vista">Sala de Espera (Todos los Pacientes)</h1>
+      <div id="grid-pacientes" class="grid-tarjetas"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
